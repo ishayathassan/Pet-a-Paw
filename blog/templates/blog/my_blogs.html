@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/my_blog.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>My Profile</h1>
+    <div class="card mb-4 rounded-5 p-3 profile-card">
+        <div class="card-content profile-card-content">
+            <img class="profile-img" src="{% static 'images/user_img/2.png' %}">
+            <p class="card-title">{{ user.userprofile.name }}</p>
+            <p class="card-text profile-content user-name"><b>Username:</b> {{ request.user }}</p>
+            <p class="card-text profile-content blog-count"><b>Total Blogs:</b> {{ blogs|length }}</p>
+            <p class="card-text profile-content dob"><b>Date of Birth:</b> {{ request.user.userprofile.dob }}</p>
+        </div>
+    </div>
+
+
+    {% for blog in blogs %}
+        <div class="card mb-4 rounded-5 p-3 blog-card">
+            <div class="card-content blog-card-content">
+                <img class="blogger-img" src="{% static 'images/user_img/2.png' %}">
+                <p class="card-title">{{ blog.user.userprofile.name }}</p>
+                <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
+                <a href="{% url 'single_blog' blog.blog_id %}">
+                    {% if blog.content|length > 350 %}
+                        <p class="card-text blog-content">{{ blog.content|slice:":350" }}... <span class="see-more">See more</span>
+                        </p>
+                    {% else %}
+                        <p class="card-text blog-content">{{ blog.content }}</p>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

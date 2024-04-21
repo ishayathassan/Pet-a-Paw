@@ -1,0 +1,157 @@
+.blog-card {
+    position: relative;
+    background-color: #D9D9D9;
+    width: 1000px;
+    height: 250px;
+    border-radius: 35px !important;
+    margin-top: 50px;
+    margin-left: 135px;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.blog-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.blogger-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.card-title {
+    margin-top: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-time {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 11px;
+    position: absolute;
+    top: 22px;
+    right: 25px;
+}
+
+.blog-content {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.like-box {
+    position: absolute;
+    top: 180px;
+    left: 15px;
+}
+
+.like-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-count {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+}
+
+.comment-count p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-box {
+    position: absolute;
+    top: 400px;
+    left: 140px;
+}
+
+.comment-box textarea {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 9px;
+    width: 670px;
+    height: 85px;
+    border-radius: 20px;
+    resize: none;
+    padding-left: 25px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.comment-box button {
+    position: absolute;
+    top: 110px;
+    right: 5px;
+    width: 120px;
+    height: 40px;
+    border-radius: 75px;
+    background-color: #D57800;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.comment-card {
+    margin-top: 180px;
+    margin-bottom: 0px;
+    background-color: #D9D9D9;
+    width: 500px;
+    height: 120px;
+    border-radius: 35px !important;
+    margin-left: 150px;
+    font-family: "Poppins", sans-serif;
+}
+
+.comment-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.card-title {
+    margin-top: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.comment-time {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 11px;
+    position: absolute;
+    top: 22px;
+    right: 25px;
+}
+
+.comment-content {
+    margin-top: 10px;
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}

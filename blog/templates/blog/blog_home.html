@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/blog_home.css' %}">
+{% endblock %}
+{% block content %}
+    {#    New Blog Box #}
+    <div class="card mb-4 rounded-5 p-3 new-post-card">
+        <form action="{% url 'create_blog' %}" method="POST">
+            {% csrf_token %}
+            <div class="card-content new-post-card-content">
+                <img id="user-img" src="{% static 'images/user_img/1.png' %}">
+
+                <textarea type="text" name="blog-content" id="new-blog"
+                          placeholder="What's on your mind hoo-man?"></textarea>
+            </div>
+            <input type="submit" name="post-btn" class="btn btn-primary post-btn" value="Post">
+
+        </form>
+    </div>
+
+    {#    Blog Posts#}
+    {% for blog in blogs %}
+        <div class="card mb-4 rounded-5 p-3 blog-card">
+            <div class="card-content blog-card-content">
+                <img class="blogger-img" src="{% static 'images/user_img/2.png' %}">
+                <p class="card-title">{{ blog.user.userprofile.name }}</p>
+                <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
+                <a href="{% url 'single_blog' blog.blog_id %}">
+                    {% if blog.content|length > 350 %}
+                        <p class="card-text blog-content">{{ blog.content|slice:":350" }}... <span class="see-more">See more</span>
+                        </p>
+                    {% else %}
+                        <p class="card-text blog-content">{{ blog.content }}</p>
+                    {% endif %}
+                </a>
+                <div class="like-box">
+                    <img src="{% static 'images/assets/heart2.png' %}" alt="">
+                    <p>{{ blog.like_count }}</p>
+                </div>
+
+                {#                <div class="like-box">#}
+                {##}
+                {#                    {% if blog.blog_id in liked_blogs %}#}
+                {#                        <form action="{% url 'unlike_blog' blog.blog_id %}" method="post">#}
+                {#                            {% csrf_token %}#}
+                {#                            <p>{{ blog.blog_id }}-{{ request.user }}Liked</p>#}
+                {#                            <button type="submit">Unlike</button>#}
+                {#                        </form>#}
+                {#                    {% else %}#}
+                {#                        <form action="{% url 'like_blog' blog.blog_id %}" method="post">#}
+                {#                            {% csrf_token %}#}
+                {#                            <p>Not Liked</p>#}
+                {#                            <button type="submit">Like</button>#}
+                {#                        </form>#}
+                {#                    {% endif %}#}
+                {#                </div>#}
+
+
+                <div class="comment-box">
+                    <img src="{% static 'images/assets/comments.png' %}" alt="">
+                    <p>{{ blog.comment_count }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

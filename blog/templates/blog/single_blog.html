@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/single_blog.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="card mb-4 rounded-5 p-3 blog-card">
+        <div class="card-content blog-card-content">
+            <img class="blogger-img" src="{% static 'images/user_img/2.png' %}">
+            <p class="card-title">{{ blog.user.userprofile.name }}</p>
+            <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
+            <p class="card-text blog-content">{{ blog.content }}</p>
+            <div class="like-box">
+                <img src="{% static 'images/assets/heart2.png' %}" alt="">
+                <p>{{ blog.like_count }}</p>
+            </div>
+            <div class="comment-count">
+                <img src="{% static 'images/assets/comments.png' %}" alt="">
+                <p>{{ blog.comment_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="comment-box">
+        <form action="{% url 'post_comment' blog.blog_id %}" method="POST">
+            {% csrf_token %}
+            <textarea type="text" name="comment" placeholder="Write a comment..."></textarea>
+            <button type="submit">Comment</button>
+        </form>
+    </div>
+    {% for comment in comments %}
+        <div class="card mb-4 rounded-5 p-3 comment-card">
+            <div class="card-content comment-card-content">
+                <p class="card-title">{{ comment.user.userprofile.name }}</p>
+                <h6 class="card-subtitle mb-2  blog-time">{{ comment.created_at }}</h6>
+                <p class="card-text comment-content">{{ comment.content }}</p>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

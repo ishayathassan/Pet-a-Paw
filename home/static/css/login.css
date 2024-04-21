@@ -1,0 +1,62 @@
+body {
+    background-image: url("../images/register_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#login-box {
+    background: #D9D9D9;
+    width: 700px;
+    max-height: 800px;
+    border-radius: 30px !important;
+    padding: 80px !important;
+
+}
+
+#login-box .form-fields {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 35px !important;
+}
+
+.form-label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+}
+
+#login-box .form-footer {
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.form-footer a {
+    text-decoration: none;
+    color: #D57800;
+}
+
+
+.login-btn {
+    background: #D57800;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    width: 140px;
+    height: 50px;
+    border-radius: 75px;
+    padding: 5px 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.login-btn:hover {
+    background: rgba(213, 120, 0, 0.83);
+    color: #FFFFFF;
+    border: black 1px solid;
+}

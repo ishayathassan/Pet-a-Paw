@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{#{% block title %}#}
+{#    Shop your pet accessories here!#}
+{#{% endblock %}#}
+{% block content %}
+
+    <div class="container mt-2">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-3 col-md-3 mb-4">
+                    <div class="card shadow h-100 border-0">
+                        {#                        <img src="{% static 'images/2.jpeg' %}" class="card-img-top product"#}
+                        {#                             alt="Product Image">#}
+                        <div class="card-body text-center">
+                            <a class='brand-text text-decoration-none ss-text'
+                               href="">
+                                <h5 class='mb-2 font-weight-bold'>{{ product.name }}</h5>
+                            </a>
+                            <p class='text-muted mb-2 small ss-text'>{{ product.category }}</p>
+                            <p class='text-muted mb-1 ss-text'>Price: ${{ product.price }}</p>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Details Button -->
+                                <a class='brand-text ml-3' href="">Details</a>
+
+                                <!-- Add to Cart Button -->
+                                <form action="" method="post" style="margin-left: 75px;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="addToCart" value="">
+                                    <button class="btn brand search-button ss-text" type="submit">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <?php } ?>
+        </div>
+    </div>
+
+{% endblock %}
