@@ -88,7 +88,7 @@
                                    href="{% url 'single_product' product.id %}">Details</a>
 
                                 <!-- Add to Cart Button -->
-                                <form action="index.php" method="post" style="margin-left: 75px;">
+                                <form action="" method="post" style="margin-left: 75px;">
                                     <input type="hidden" name="addToCart" value="{{ product.id }}">
                                     {#                                <?php if (isset($_SESSION['user_id'])) { ?>#}
                                     {% if request.user %}

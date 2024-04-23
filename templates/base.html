@@ -64,20 +64,18 @@
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 
                 {% if request.user.is_authenticated %}
-                    <p>{{ request.user.username }}</p>
-                    {#                    <li><a class="nav-link" href="" id="cartButton"><img src="home/images/cart.svg"></a></li>#}
-                    {#                    <li><a href="profile.php">#}
-                    {#                        <?php#}
-                    {#            							$userid= (int)$_SESSION['user_id'];#}
-                    {#            							$modid=$userid%7;#}
-                    {#            							$imagePath2 = "Users_image/" . $modid . ".png";#}
-                    {#            							$imagePath = "Users_image/" . $_SESSION['user_id'] . ".jpg";#}
-                    {#            							?>#}
-                    {##}
-                    {#                        <img src="<?php echo $imagePath; ?>" alt="Profile Icon" width="50" height="50"#}
-                    {#                             style="margin-left: 1px;  border-radius: 50%; position: relative; top: -8px; right: -10px;"#}
-                    {#                             onerror="this.onerror=null; this.src='<?php echo $imagePath2; ?>'; this.alt='DP';">#}
-                    {#                    </a></li>#}
+                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li><a class="nav-link" href="" id="cartButton"><img
+                                src="{% static 'images/home_page/cart.svg' %}"></a>
+                        </li>
+                        {#                        <li>{{ request.user.username }}</li>#}
+                        <li><a href="">
+                            <img src="{{ request.user.userprofile.image.url }}" alt="Profile Icon" width="50"
+                                 height="50"
+                                 style="margin-left: 10px; margin-right:12px; margin-top:5px; border-radius: 50%; width: 45px; height: 45px; position: relative; top: -8px; right: -10px;"
+                            ">
+                        </a></li>
+                    </ul>
                     <a href="{% url 'logout' %}" class="nav-link">Log out</a>
 
                 {% else %}

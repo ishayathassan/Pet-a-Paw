@@ -7,7 +7,7 @@
     <h1>My Profile</h1>
     <div class="card mb-4 rounded-5 p-3 profile-card">
         <div class="card-content profile-card-content">
-            <img class="profile-img" src="{% static 'images/user_img/2.png' %}">
+            <img class="profile-img" src="{{ user.userprofile.image.url }}">
             <p class="card-title">{{ user.userprofile.name }}</p>
             <p class="card-text profile-content user-name"><b>Username:</b> {{ request.user }}</p>
             <p class="card-text profile-content blog-count"><b>Total Blogs:</b> {{ blogs|length }}</p>
@@ -19,7 +19,7 @@
     {% for blog in blogs %}
         <div class="card mb-4 rounded-5 p-3 blog-card">
             <div class="card-content blog-card-content">
-                <img class="blogger-img" src="{% static 'images/user_img/2.png' %}">
+                <img class="blogger-img" src="{{ user.userprofile.image.url }}">
                 <p class="card-title">{{ blog.user.userprofile.name }}</p>
                 <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
                 <a href="{% url 'single_blog' blog.blog_id %}">
