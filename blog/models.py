@@ -23,4 +23,4 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Comment by {self.user.username} on {self.blog.title}"
+        return f"Comment by {self.user.username} on {self.blog.blog_id}"

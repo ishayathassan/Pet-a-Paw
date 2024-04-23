@@ -42,13 +42,22 @@
         </form>
     </div>
     {% for comment in comments %}
-        <div class="card mb-4 rounded-5 p-3 comment-card">
-            <div class="card-content comment-card-content">
-                <p class="card-title">{{ comment.user.userprofile.name }}</p>
-                <h6 class="card-subtitle mb-2  blog-time">{{ comment.created_at }}</h6>
-                <p class="card-text comment-content">{{ comment.content }}</p>
+        {% if forloop.first %}
+            <div class="card mb-4 rounded-5 p-3 comment-card first-comment">
+                <div class="card-content comment-card-content ">
+                    <p class="card-title">{{ comment.user.userprofile.name }}</p>
+                    <h6 class="card-subtitle mb-2 comment-time">{{ comment.created_at }}</h6>
+                    <p class="card-text comment-content">{{ comment.content }}</p>
+                </div>
             </div>
-        </div>
-
+        {% else %}
+            <div class="card mb-4 rounded-5 p-3 comment-card">
+                <div class="card-content comment-card-content">
+                    <p class="card-title">{{ comment.user.userprofile.name }}</p>
+                    <h6 class="card-subtitle mb-2 comment-time">{{ comment.created_at }}</h6>
+                    <p class="card-text comment-content">{{ comment.content }}</p>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
 {% endblock %}
