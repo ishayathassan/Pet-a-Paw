@@ -43,21 +43,19 @@
     position: absolute;
     bottom: 20px;
     right: 40px;
-    width: 85px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
     border-radius: 75px;
     background-color: #D57800;
     font-weight: 600;
     font-style: normal;
-    font-size: 15px;
-    padding-bottom: 4px;
+    font-size: 16px;
     border: none;
 }
 
 .post-btn:hover {
     background: rgba(213, 120, 0, 0.83);
     color: #FFFFFF;
-    border: black 1px solid;
 }
 
 .blog-card {
@@ -127,7 +125,7 @@
 .comment-box {
     position: absolute;
     top: 180px;
-    left: 80px;
+    left: 85px;
 }
 
 .comment-box p {
@@ -136,6 +134,11 @@
     font-size: 14px;
     display: inline-block;
     margin-left: 5px;
+}
+
+.comment-box img {
+    margin-left: 2px;
+    margin-bottom: 2px;
 }
 
 a {
@@ -147,4 +150,31 @@ a {
     text-decoration: none;
     color: #D57800;
     font-size: 14px;
+}
+
+#like-btn img {
+    content: url("../images/assets/heart1.png");
+}
+
+#like-btn:hover img {
+    content: url("../images/assets/heart2.png"); /* Change the image path accordingly */
+}
+
+#unlike-btn img {
+    content: url("../images/assets/heart2.png");
+}
+
+#unlike-btn:hover img {
+    content: url("../images/assets/heart1.png"); /* Change the image path accordingly */
+}
+
+.react-btn {
+    display: inline-block !important;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -45px;
+    left: 20px;
 }

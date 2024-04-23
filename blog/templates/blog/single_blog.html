@@ -11,8 +11,22 @@
             <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
             <p class="card-text blog-content">{{ blog.content }}</p>
             <div class="like-box">
-                <img src="{% static 'images/assets/heart2.png' %}" alt="">
                 <p>{{ blog.like_count }}</p>
+                {% if request.user in blog.liked_by.all %}
+                    <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                        {% csrf_token %}
+                        <button id="like-btn" class="react-btn" type="submit"><img
+
+                                alt=""></button>
+                    </form>
+                {% else %}
+                    <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                        {% csrf_token %}
+                        <button id="unlike-btn" class="react-btn" type="submit"><img
+
+                                alt=""></button>
+                    </form>
+                {% endif %}
             </div>
             <div class="comment-count">
                 <img src="{% static 'images/assets/comments.png' %}" alt="">

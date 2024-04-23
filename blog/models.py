@@ -10,17 +10,10 @@ class Blog(models.Model):
     like_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    liked_by = models.ManyToManyField(User, related_name='liked_blogs', blank=True)
 
     def __str__(self):
         return f"Blog {self.blog_id} by {self.user.username}"
-
-
-class Like(models.Model):
-    blog = models.ForeignKey('Blog', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.user.username} likes {self.blog.title}'
 
 
 class Comment(models.Model):

@@ -101,8 +101,8 @@
     position: absolute;
     top: 110px;
     right: 5px;
-    width: 120px;
-    height: 40px;
+    width: 130px !important;
+    height: 50px !important;
     border-radius: 75px;
     background-color: #D57800;
     font-weight: 600;
@@ -154,4 +154,31 @@
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+}
+
+#like-btn img {
+    content: url("../images/assets/heart1.png");
+}
+
+#like-btn:hover img {
+    content: url("../images/assets/heart2.png"); /* Change the image path accordingly */
+}
+
+#unlike-btn img {
+    content: url("../images/assets/heart2.png");
+}
+
+#unlike-btn:hover img {
+    content: url("../images/assets/heart1.png"); /* Change the image path accordingly */
+}
+
+.react-btn {
+    display: inline-block !important;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -45px;
+    left: 20px;
 }

@@ -34,32 +34,31 @@
                         <p class="card-text blog-content">{{ blog.content }}</p>
                     {% endif %}
                 </a>
-                <div class="like-box">
-                    <img src="{% static 'images/assets/heart2.png' %}" alt="">
-                    <p>{{ blog.like_count }}</p>
-                </div>
 
-                {#                <div class="like-box">#}
-                {##}
-                {#                    {% if blog.blog_id in liked_blogs %}#}
-                {#                        <form action="{% url 'unlike_blog' blog.blog_id %}" method="post">#}
-                {#                            {% csrf_token %}#}
-                {#                            <p>{{ blog.blog_id }}-{{ request.user }}Liked</p>#}
-                {#                            <button type="submit">Unlike</button>#}
-                {#                        </form>#}
-                {#                    {% else %}#}
-                {#                        <form action="{% url 'like_blog' blog.blog_id %}" method="post">#}
-                {#                            {% csrf_token %}#}
-                {#                            <p>Not Liked</p>#}
-                {#                            <button type="submit">Like</button>#}
-                {#                        </form>#}
-                {#                    {% endif %}#}
-                {#                </div>#}
+                <div class="like-box">
+                    <p>{{ blog.like_count }}</p>
+                    {% if request.user in blog.liked_by.all %}
+                        <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                            {% csrf_token %}
+                            <button id="like-btn" class="react-btn" type="submit"><img
+
+                                    alt=""></button>
+                        </form>
+                    {% else %}
+                        <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                            {% csrf_token %}
+                            <button id="unlike-btn" class="react-btn" type="submit"><img
+
+                                    alt=""></button>
+                        </form>
+                    {% endif %}
+                </div>
 
 
                 <div class="comment-box">
-                    <img src="{% static 'images/assets/comments.png' %}" alt="">
                     <p>{{ blog.comment_count }}</p>
+                    <a href="{% url 'single_blog' blog.blog_id %}"><img src="{% static 'images/assets/comments.png' %}"
+                                                                        alt=""></a>
                 </div>
             </div>
         </div>
