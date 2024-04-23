@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    {#    <link rel="stylesheet" href="{% static 'css/shop.css' %}">#}
+{% endblock %}
+{% block content %}
+
+
+    <section class="h-100 h-custom" style="background-color: #f3f3f3;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+
+                                <div class="col-lg-8" style="background-color: #BFBFBF;">
+                                    <div class="p-5">
+                                        <img src="{{ product.image.url }}"
+                                             class="card-img-top mx-auto d-block" alt="Product Image"
+                                             style="max-width: 700px; max-height: 900px;">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h2 class="det-text fw-bold mt-4 text-black">{{ product.names }}</h2>
+                                        </div>
+                                        <hr class="my-4">
+                                        <p class="card-text ss-text">
+                                            <strong>Category:</strong> {{ product.category }}</p>
+                                        <p class="card-text ss-text"><strong>Price:</strong>
+                                            ${{ product.price }}</p>
+                                        <p class="card-text ss-text"><strong>Quantity
+                                            Left:</strong> {{ product.stock }}</p>
+                                        <p class="card-text ss-text">
+                                            <strong>Details:</strong> {{ product.detailss }}
+                                        </p>
+
+
+                                    </div>
+                                </div>
+                                <!-- New review box and submit button -->
+                                {#                                <div class="col-lg-4 bg-grey">#}
+                                {#                                    <div class="p-5">#}
+                                {#                                        <div class="d-flex justify-content-between align-items-center mb-3">#}
+                                {#                                            <h2 class="ss-text fw-bold mt-4 det-text">Reviews</h2>#}
+                                {#                                        </div>#}
+                                {#                                        <hr class="my-4">#}
+                                {##}
+                                {#                                        <?php#}
+                                {#                                            // Check if the user has bought the product#}
+                                {#                                            $checkQuery = "SELECT user_id FROM order_details#}
+                                {#                                                            WHERE user_id = '$user_id'#}
+                                {#                                                            AND id IN (SELECT order_id FROM ordered_products WHERE product_id = '{$product['id']}')";#}
+                                {#                                            $checkResult = mysqli_query($conn, $checkQuery);#}
+                                {#                                            if (mysqli_num_rows($checkResult) > 0) {#}
+                                {#                                        // User has bought the product, render the review form#}
+                                {#                                        echo '#}
+                                {#                                        <form method="post">';#}
+                                {#                                            echo '#}
+                                {#                                            <div class="mb-3">';#}
+                                {#                                                echo '<label for="reviewText" class="form-label">Your Review:</label>';#}
+                                {#                                                echo '<textarea class="form-control" id="reviewText" name="reviewText"#}
+                                {#                                                                rows="3" required></textarea>';#}
+                                {#                                                echo '#}
+                                {#                                            </div>#}
+                                {#                                            ';#}
+                                {#                                            // Add any additional fields for the review, if needed#}
+                                {##}
+                                {#                                            echo '#}
+                                {#                                            <button type="submit" class="btn brand search-button nav_text ms-2"#}
+                                {#                                                    name="submitReview">Submit Review#}
+                                {#                                            </button>#}
+                                {#                                            ';#}
+                                {#                                            echo '#}
+                                {#                                        </form>#}
+                                {#                                        ';#}
+                                {#                                        } else {#}
+                                {#                                        // User has not bought the product, display a message#}
+                                {#                                        echo '<p>You can submit a review after purchasing the product.</p>';#}
+                                {#                                        }#}
+                                {##}
+                                {#                                        // Process the submitted review#}
+                                {#                                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitReview'])) {#}
+                                {#                                        // Assuming you have a function to sanitize and handle review submission#}
+                                {#                                        $reviewText = mysqli_real_escape_string($conn, $_POST['reviewText']);#}
+                                {#                                        $productId = mysqli_real_escape_string($conn, $product['id']);#}
+                                {##}
+                                {#                                        // Insert the review into the database#}
+                                {#                                        $insertReviewQuery = "INSERT INTO p_review (product_id, user_id, review) VALUES#}
+                                {#                                        ('$productId', '$user_id', '$reviewText')";#}
+                                {#                                        $insertReviewResult = mysqli_query($conn, $insertReviewQuery);#}
+                                {##}
+                                {#                                        if ($insertReviewResult) {#}
+                                {#                                        echo '#}
+                                {#                                        <div class="alert alert-success" role="alert">Review submitted successfully!#}
+                                {#                                        </div>#}
+                                {#                                        ';#}
+                                {#                                        // You may choose to update the displayed reviews dynamically here#}
+                                {#                                        } else {#}
+                                {#                                        echo '#}
+                                {#                                        <div class="alert alert-danger" role="alert">Error submitting review: ' .#}
+                                {#                                            mysqli_error($conn) . '#}
+                                {#                                        </div>#}
+                                {#                                        ';#}
+                                {#                                        }#}
+                                {#                                        }#}
+                                {#                                        echo '#}
+                                {#                                        <hr class="my-4">#}
+                                {#                                        ';#}
+                                {#                                        $fetchReviewsQuery = "SELECT user_id, name, review#}
+                                {#                                        FROM p_review join users ON p_review.user_id= users.user_name#}
+                                {#                                        WHERE product_id = '{$product['id']}' LIMIT 5";#}
+                                {#                                        $fetchReviewsResult = mysqli_query($conn, $fetchReviewsQuery);#}
+                                {#                                        if (mysqli_num_rows($fetchReviewsResult) > 0) {#}
+                                {##}
+                                {#                                        while ($row = mysqli_fetch_assoc($fetchReviewsResult)) {#}
+                                {#                                        echo '#}
+                                {#                                        <div class="card order-item mb-4 ss-text bg-light"#}
+                                {#                                             style="border: none; border-radius: 16px;">';#}
+                                {#                                            echo '#}
+                                {#                                            <div class="card-body">';#}
+                                {#                                                echo '#}
+                                {#                                                <div class="d-flex justify-content-between align-items-start">';#}
+                                {#                                                    echo '#}
+                                {#                                                    <div>';#}
+                                {#                                                        echo '<p class="mb-1 det-text">' .#}
+                                {#                                                            htmlspecialchars($row['name']) . '</p>';#}
+                                {#                                                        echo '#}
+                                {#                                                        <hr class="my-4">#}
+                                {#                                                        ';#}
+                                {#                                                        echo '<p class="ss-text">' . htmlspecialchars($row['review']) .#}
+                                {#                                                            '</p>';#}
+                                {#                                                        echo '#}
+                                {#                                                    </div>#}
+                                {#                                                    ';#}
+                                {#                                                    echo '#}
+                                {#                                                </div>#}
+                                {#                                                ';#}
+                                {#                                                echo '#}
+                                {#                                            </div>#}
+                                {#                                            ';#}
+                                {#                                            echo '#}
+                                {#                                        </div>#}
+                                {#                                        ';#}
+                                {#                                        }#}
+                                {##}
+                                {#                                        echo '</ul>';#}
+                                {#                                        echo '#}
+                                {#                                    </div>#}
+                                {#                                    ';#}
+                                {#                                    } else {#}
+                                {#                                    echo '<p>No past reviews available for this product.</p>';#}
+                                {#                                    }#}
+                                {#                                    ?>#}
+                                {#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+{% endblock %}

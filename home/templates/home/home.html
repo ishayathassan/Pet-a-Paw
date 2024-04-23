@@ -259,57 +259,8 @@
     <!-- End Popular Product -->
 
 
-    <!-- <!DOCTYPE html> -->
-    <div class="slideshow-container">
-        <!-- Slide 1 -->
-        <div class="mySlides">
-            <a href="" class="image-link">
-                <picture>
-                    <source srcset="{% static 'images/home_page/Banner_10.webp' %}" type="image/webp">
-                    <source srcset="{% static 'images/home_page/Banner_10.webp' %}" type="image/jpeg">
-                    <img src="{% static 'images/home_page/Banner_10.webp' %}" alt="Slide 1"
-                         style="width: 100%;">
-                </picture>
-            </a>
-        </div>
+    {% include 'featured.html' %}
 
-        <!-- Slide 2 -->
-        <div class="mySlides">
-            <a href="" class="image-link">
-                <picture>
-                    <source srcset="{% static 'images/home_page/hotel.jpeg' %}" type="image/webp">
-                    <source srcset="{% static 'images/home_page/hotel.jpeg' %}" type="image/jpeg">
-                    <img src="{% static 'images/home_page/hotel.jpeg' %}" alt="Slide 2"
-                         style="width: 100%;">
-                </picture>
-            </a>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="mySlides">
-            <a href="" class="image-link">
-                <picture>
-                    <source srcset="{% static 'images/home_page/vet.png' %}" type="image/webp">
-                    <source srcset="{% static 'images/home_page/vet.png' %}" type="image/jpeg">
-                    <img src="{% static 'images/home_page/vet.png' %}" alt="Slide 3" style="width: 100%;">
-                </picture>
-            </a>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="mySlides">
-            <a href="" class="image-link">
-                <picture>
-                    <source srcset="{% static 'images/home_page/banner03.png' %}" type="image/webp">
-                    <source srcset="{% static 'images/home_page/banner03.png' %}" type="image/jpeg">
-                    <img src="{% static 'images/home_page/banner03.png' %}" alt="Slide 3"
-                         style="width: 100%;">
-                </picture>
-            </a>
-        </div>
-
-
-    </div>
 
     {% include 'footer.html' %}
     <!-- End Footer Section -->
