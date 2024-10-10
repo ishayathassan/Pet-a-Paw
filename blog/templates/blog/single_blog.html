@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/single_blog.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="card mb-4 rounded-5 p-3 blog-card">
+        <div class="card-content blog-card-content">
+            <img class="blogger-img" src="{{ blog.user.userprofile.image.url }}">
+            <p class="card-title">{{ blog.user.userprofile.name }}</p>
+            <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
+
+            {#            {% if request.user == blog.user %}#}
+            {#                <div class="dropdown three-dots-toggler">#}
+            {#                    <a class="" href="#" role="button" id="toggleLink" data-bs-toggle="dropdown"#}
+            {#                       aria-expanded="false">#}
+            {#                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"#}
+            {#                             class="bi bi-three-dots " viewBox="0 0 16 16">#}
+            {#                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>#}
+            {#                        </svg>#}
+            {#                    </a>#}
+            {#                    <ul class="dropdown-menu" aria-labelledby="toggleLink">#}
+            {#                        <li><a class="dropdown-item" href="{% url 'update_blog' blog.blog_id %}"#}
+            {#                               id="updateLink">Update</a>#}
+            {#                        </li>#}
+            {#                        <li><a class="dropdown-item" href="{% url 'delete_blog' blog.blog_id %}"#}
+            {#                               id="deleteLink">Delete</a></li>#}
+            {#                    </ul>#}
+            {#                </div>#}
+            {#            {% endif %}#}
+
+            <p class="card-text blog-content">{{ blog.content }}</p>
+            <div class="tags">
+                {% for tag in blog.tags.all %}
+                    <a href="{% url 'blog_home' %}?searchInput={{ tag.name }}" class="tag">#{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+            <div class="like-box">
+                <p>{{ blog.like_count }}</p>
+                {% if request.user in blog.liked_by.all %}
+                    <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                        {% csrf_token %}
+                        <button id="like-btn" class="react-btn" type="submit"><img
+
+                                alt=""></button>
+                    </form>
+                {% else %}
+                    <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                        {% csrf_token %}
+                        <button id="unlike-btn" class="react-btn" type="submit"><img
+
+                                alt=""></button>
+                    </form>
+                {% endif %}
+            </div>
+            <div class="comment-count">
+                <img src="{% static 'images/assets/comments.png' %}" alt="">
+                <p>{{ blog.comment_count }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="comment-box">
+        <form action="{% url 'post_comment' blog.blog_id %}" method="POST">
+            {% csrf_token %}
+            <textarea type="text" name="comment" placeholder="Write a comment..."></textarea>
+            <button type="submit">Comment</button>
+        </form>
+    </div>
+    {% for comment in comments %}
+        {% if forloop.first %}
+            <div class="card mb-4 rounded-5 p-3 comment-card first-comment">
+                <div class="card-content comment-card-content ">
+                    <p class="card-title">{{ comment.user.userprofile.name }}</p>
+                    <h6 class="card-subtitle mb-2 comment-time">{{ comment.created_at }}</h6>
+
+                    <p class="card-text comment-content">{{ comment.content }}</p>
+                </div>
+            </div>
+        {% else %}
+            <div class="card mb-4 rounded-5 p-3 comment-card">
+                <div class="card-content comment-card-content">
+                    <p class="card-title">{{ comment.user.userprofile.name }}</p>
+                    <h6 class="card-subtitle mb-2 comment-time">{{ comment.created_at }}</h6>
+                    <p class="card-text comment-content">{{ comment.content }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const updateLink = document.getElementById('updateLink');
+        const deleteLink = document.getElementById('deleteLink');
+        const toggleLink = document.getElementById('toggleLink');
+
+        updateLink.addEventListener('click', function (event) {
+            // Handle update logic here
+            console.log('Update clicked');
+        });
+
+        deleteLink.addEventListener('click', function (event) {
+            // Handle delete logic here
+            console.log('Delete clicked');
+        });
+
+        toggleLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default link behavior
+        });
+    });
+</script>

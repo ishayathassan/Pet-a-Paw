@@ -1,0 +1,259 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/vet_home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="imageCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div style="height: 600px; overflow: hidden;">
+                <img src="{% static 'images/local-boarding-header-banner-image.jpg' %}" class="d-block w-100"
+                     alt="Slide 1"
+                     style="object-fit: cover; height: 100%; width: 100%;">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div style="height: 600px; overflow: hidden;">
+                <img src="{% static 'images/pawss-stay-hero.jpg' %}" class="d-block w-100" alt="Slide 2"
+                     style="object-fit: cover; height: 100%; width: 100%;">
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div style="height: 600px; overflow: hidden;">
+                <img src="{% static 'images/pngtree-pet-hotel-hall-flat-color-vector-illustration-banner-facility-domestic-vector-png-image_31323792.jpg' %}"
+                     class="d-block w-100" alt="Slide 3" style="object-fit: cover; height: 100%; width: 100%;">
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<br>
+<h2 class="mb-4" style="text-align: center;color:#3a8a9e; margin-top: 50px;">Our Doctors</h2>
+<p class="mb-5" style="text-align: center;color:#3a8a9e;">At Pet A Paw, our vet doctors are the epitome of excellence,
+    combining cutting-edge expertise with a heartfelt commitment to ensuring the well-being of your cherished pets. </p>
+
+    <div class="container" style="margin-top: 140px;">
+        <div class="row">
+            
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger mb-3">
+                        <!-- Rounded Image at the top -->
+                        
+                        
+                         <img src="{% static 'images/11.jpg' %}" class="card-img-top rounded-circle mx-auto d-block" alt="Vet Image"
+                            style="width: 200px; height: 200px; margin-top: -100px;">
+                        
+    
+                        <div class="card-body text-center">
+                            <!-- Vertically aligned text in the middle -->
+                            <h5 class="card-title">
+                                Kristen Dunst
+                            </h5>
+                            <p class="card-text">
+                                dunst@gmail.com<br>
+                                01912539011
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger mb-3">
+                        <!-- Rounded Image at the top -->
+                        
+                        
+                         <img src="{% static 'images/33.jpg' %}" class="card-img-top rounded-circle mx-auto d-block" alt="Vet Image"
+                            style="width: 200px; height: 200px; margin-top: -100px;">
+                        
+    
+                        <div class="card-body text-center">
+                            <!-- Vertically aligned text in the middle -->
+                            <h5 class="card-title">
+                                Arya Stark
+                            </h5>
+                            <p class="card-text">
+                                arya@gmail.com<br>
+                                01703797919
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger mb-3">
+                        <!-- Rounded Image at the top -->
+                        
+                        
+                         <img src="{% static 'images/46.jpg' %}" class="card-img-top rounded-circle mx-auto d-block" alt="Vet Image"
+                            style="width: 200px; height: 200px; margin-top: -100px;">
+                        
+    
+                        <div class="card-body text-center">
+                            <!-- Vertically aligned text in the middle -->
+                            <h5 class="card-title">
+                                John Snow
+                            </h5>
+                            <p class="card-text">
+                                johnsnow@gmail.com<br>
+                                01678929321
+                            </p>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+
+    <!-- Additional design elements after the button -->
+<div class="col-md-12 text-center mt-5">
+    <div class="decorative-border"></div>
+    <h3 style="color: #3a8a9e; margin-top: 20px;">Discover the Difference in Pet Care</h3>
+</div>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Part - Book an Appointment -->
+        <div class="col-md-6">
+            <div class="card h-100 well-block rounded-5" style="background-color: #adadac;">
+                <div class="card-body">
+                    <div class="well-title text-center mb-5 det-text">
+                        <h2>Book an Appointment</h2>
+                    </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <!-- Form start -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Name</label>
+                                    <input id="name" name="name" type="text" placeholder="Name"
+                                        class="form-control input-md" >
+                                    
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <input id="email" name="email" type="text" placeholder="E-Mail"
+                                        class="form-control input-md" >
+                                   
+                                </div>
+                            </div>
+                            <!-- Number input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="number">Phone Number</label>
+                                    <input id="number" name="number" type="tel" placeholder="Phone Number"
+                                        class="form-control input-md">
+                                    
+                                </div>
+                            </div>
+                            <!-- Date input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Preferred Date</label>
+                                    <input id="date" name="date" type="date" placeholder="Preferred Date"
+                                        class="form-control input-md">
+                                  
+                                </div>
+                            </div>
+                            <!-- Select Basic -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="time">Preferred Time</label>
+                                    <select id="time" name="time" class="form-control">
+                                        <option value="8:00 to 9:00">8:00 to 9:00</option>
+                                        <option value="9:00 to 10:00">9:00 to 10:00</option>
+                                        <option value="10:00 to 1:00">10:00 to 1:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="vet">Vet</label>
+                                    <select id="vet" name="vet" class="form-control">
+                                        
+                                            <option value="Kristen Dunst">
+                                                Kristen Dunst
+                                            </option>
+
+                                            <option value="Arya Stark">
+                                                Arya Stark
+                                            </option>
+
+                                            <option value="John Snow">
+                                                John Snow
+                                            </option>
+                                       
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="col-md-12 text-center">
+                                <div class="form-group">
+                                    <button id="singlebutton" name="make_an_appointment"
+                                        class="btn btn-primary mt-3">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- form end -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right Part - Why Choose Us -->
+        <div class="col-md-6">
+            <div class="card h-100 well-block rounded-5" style="background-color: #adadac;">
+                <div class="card-body">
+                    <div class="well-title text-center mb-5 det-text">
+                        <h2>Why Choose Us</h2>
+                    </div>
+                    <div class="feature-block">
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">24/7 Hours Available</h4>
+                            <div class="feature-content">
+                                <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula
+                                    et, iaculis in magnestibulum.</p>
+                            </div>
+                        </div>
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">Experienced Staff Available</h4>
+                            <div class="feature-content">
+                                <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis
+                                    feugiat risus. </p>
+                            </div>
+                        </div>
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">Low Price & Fees</h4>
+                            <div class="feature-content">
+                                <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer
+                                    auctor elementum nulla suscipit in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  {% include 'footer.html' %}
+{% endblock %}
+</body>

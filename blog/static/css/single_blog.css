@@ -1,0 +1,228 @@
+.blog-card {
+    position: relative;
+    background-color: #D9D9D9;
+    width: 1200px;
+    height: 320px !important;
+    border-radius: 35px !important;
+    margin-top: 50px;
+    margin-left: 135px;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.blog-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.blogger-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.card-title {
+    margin-top: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-time {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 11px;
+    position: absolute;
+    top: 53px;
+    left: 69px;
+}
+
+.three-dots-toggler {
+    position: absolute;
+    top: 100px;
+    right: 25px;
+}
+
+.blog-content {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.like-box {
+    position: absolute;
+    top: 255px;
+    left: 20px;
+}
+
+.like-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-count {
+    position: absolute;
+    top: 253px;
+    left: 80px;
+}
+
+.comment-count p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-box {
+    /*position: absolute;*/
+    margin-top: 50px;
+    margin-left: 140px;
+}
+
+.comment-box textarea {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 9px;
+    width: 670px;
+    height: 85px;
+    border-radius: 20px;
+    resize: none;
+    padding-left: 25px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.comment-box button {
+    position: relative;
+    bottom: 35px;
+    left: 30px;
+    width: 130px !important;
+    height: 50px !important;
+    border-radius: 75px;
+    background-color: #D57800;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.comment-card {
+    margin-top: 50px;
+    margin-bottom: 0px;
+    background-color: #D9D9D9;
+    width: 500px;
+    height: 180px;
+    border-radius: 35px !important;
+    margin-left: 150px;
+    font-family: "Poppins", sans-serif;
+}
+
+.first-comment {
+    margin-top: 50px;
+}
+
+.comment-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.comment-card-content .card-title {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.comment-card-content .comment-time {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 11px;
+    position: absolute;
+    top: 18px;
+    right: 25px;
+}
+
+.comment-content {
+    margin-top: 10px;
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+#like-btn img {
+    content: url("../images/assets/heart1.png");
+    width: 22px !important;
+    height: 22px !important;
+
+}
+
+#like-btn:hover img {
+    content: url("../images/assets/heart2.png"); /* Change the image path accordingly */
+    width: 22px !important;
+    height: 22px !important;
+}
+
+#unlike-btn img {
+    content: url("../images/assets/heart2.png");
+    width: 22px !important;
+    height: 22px !important;
+}
+
+#unlike-btn:hover img {
+    content: url("../images/assets/heart1.png"); /* Change the image path accordingly */
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.react-btn {
+    display: inline-block !important;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -45px;
+    left: 20px;
+}
+
+.tags {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+}
+
+.tags a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}
+
+.tags a:hover {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}

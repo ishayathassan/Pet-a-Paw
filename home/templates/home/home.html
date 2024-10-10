@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+{% endblock %}
+{% block content %}
+    <div class="hero">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <div class="intro-excerpt">
+                        <h1 id="heading-1">For All Your Pet </h1>
+                        <h1 id="heading-2">Needs</h1>
+                        <p class="mb-4">Unleash Joy, One Paw at a Time. Your Ultimate Destination for Pet Happiness and
+                            Wellness.</p>
+                        <p>
+                            <a href="{% url 'shop' %}" id="shop-now-btn" class="btn btn-secondary me-2">Shop Now</a>
+                            <a href="{% url 'blog_home' %}" id="explore-btn" class="btn btn-white-outline">Explore</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="hero-img-wrap">
+                        <img src="{% static 'images/home_page/header2.png' %}" class="img-fluid" width="600"
+                             height="600" style="margin-left: 240px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Hero Section -->
+
+    <!-- Start Product Section -->
+    <div class="product-section">
+        <div class="container">
+            <div class="row">
+
+                <!-- Start Column 1 -->
+                <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+                    <h2 class="mb-4 section-title">Pawsitively Premium:</h2>
+                    <h2>Tailored Quality for Furry Companions</h2>
+                    <p class="mb-4">At Pet A Paw, we prioritize your pet's happiness. Trust us to deliver the perfect
+                        blend of care and joy for your cherished companions.</p>
+                    <p><a href="{% url 'shop' %}" class="btn btn-primary subsection-btn">Explore</a></p>
+                </div>
+                <!-- End Column 1 -->
+
+                <!-- Start Column 2 -->
+                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                    <form action="" method="post" style="margin-left: 75px;">
+                        <a href="{% url 'shop' %}" class="product-item" href="">
+                            <img src="{% static 'images/home_page/bird.png' %}"
+                                 class="img-fluid product-thumbnail" width="249"
+                                 height="249">
+                            <h3 class="product-title">Bird House</h3>
+                            <strong class="product-price">$50.00</strong>
+
+                            <span class="icon-cross">
+									<img src="{% static 'images/home_page/cross.svg' %}" class="img-fluid">
+                            </span>
+                        </a>
+                </div>
+                <!-- End Column 2 -->
+
+                <!-- Start Column 3 -->
+                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                    <a href="{% url 'shop' %}" class="product-item" href="">
+                        <img src="{% static 'images/home_page/bowl.png' %}" class="img-fluid product-thumbnail"
+                             width="200" height="200">
+                        <h3 class="product-title">Metal Food Bowl</h3>
+                        <strong class="product-price">$78.00</strong>
+                        <span class="icon-cross">
+                            <img src="{% static 'images/home_page/cross.svg' %}" class="img-fluid">
+                        </span>
+                    </a>
+                </div>
+                <!-- End Column 3 -->
+
+                <!-- Start Column 4 -->
+                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                    <a href="{% url 'shop' %}" class="product-item" href="">
+                        <img src="{% static 'images/home_page/backpack.png' %}" class="img-fluid product-thumbnail"
+                             width="242"
+                             height="242">
+                        <h3 class="product-title">Carrying Backpack</h3>
+                        <strong class="product-price">$43.00</strong>
+                        <span class="icon-cross">
+                            <img src="{% static 'images/home_page/cross.svg' %}" class="img-fluid">
+                        </span>
+                    </a>
+                </div>
+                <!-- End Column 4 -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End Product Section -->
+
+    <!-- Start Why Choose Us Section -->
+    <div class="why-choose-section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p>Our commitment to quality, safety, and comfort ensures an unmatched experience for your cherished
+                        companions.</p>
+
+                    <div class="row my-5">
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <img src='{% static 'images/home_page/truck.svg' %}' alt=" Image" class="imf-fluid">
+                                <h3>Fast &amp; Free Shipping</h3>
+                                <p>Free shipping for any order over $2000</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <img src="{% static 'images/home_page/bag.svg' %}" alt="Image" class="imf-fluid">
+                                <h3>Easy to Shop</h3>
+                                <p>User friendly interactive website</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <img src="{% static 'images/home_page/support.svg' %}" alt="Image"
+                                     class="imf-fluid">
+                                <h3>24/7 Support</h3>
+                                <p>We are always just one call away, no matter when</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <img src="{% static 'images/home_page/tick.png' %}" alt="Image"
+                                     class="imf-fluid mt-2" width="35px"
+                                     height="35px">
+                                <h3>Guaranteed Quality</h3>
+                                <p>All our services are done by trained professionals</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="img-wrap">
+                        <img src="{% static 'images/home_page/dog.png' %}" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Why Choose Us Section -->
+
+    <!-- Start We Help Section -->
+    <div class="we-help-section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="imgs-grid">
+                        <div class="grid grid-1"><img src="{% static 'images/home_page/grid.png' %}" alt="Untree.co">
+                        </div>
+                        <div class="grid grid-2"><img src="{% static 'images/home_page/grid2.png' %}"
+                                                      alt="Untree.co"></div>
+                        <div class="grid grid-3"><img src="{% static 'images/home_page/grid3.png' %}"
+                                                      alt="Untree.co"></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 ps-lg-5" style="margin-top: 140px;">
+                    <h2 class="section-title mb-4">We Help You Make Pet Life Hassle Free</h2>
+                    <p>Choose us for a one-stop pet haven - products, hostels, vet care, and insightful blog. We
+                        prioritize your pet' s happiness and well-being, offering a seamless experience for pet owners.
+                        With a commitment to quality and convenience, trust us to cater to all your pet
+                        needs</P>
+
+                    <ul class="list-unstyled custom-list my-5">
+                        <li>All Pet Needs: Toys, treats, and essentials for every pet</li>
+                        <li>Safe Pet Hostels: Comfortable stays for your furry friends</li>
+                        <li>"Expert Vet Care: Professional veterinary services for happy, healthy pets</li>
+                        <li>"Pet Wisdom Blog: Insights, tips, and stories for pet enthusiasts</li>
+                    </ul>
+                    <p><a href="{% url 'vet_home' %}" class="btn btn-primary subsection-btn">Explore</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End We Help Section -->
+
+    <!-- Start Popular Product -->
+    <div class="popular-product">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="product-item-sm d-flex">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/home_page/bird.png' %}" alt="Image"
+                                 class="img-fluid"
+                                 width="120px" height="120px">
+                        </div>
+                        <div class="pt-3">
+                            <h3>Bird House</h3>
+                            <p>Cozy homes for your feathered friends. Our stylish Bird Houses bring comfort
+                                to your
+                                backyard. </p>
+                            <p><a href="{% url 'single_product' 1 %}" style="color: black; text-decoration: none;"
+                                  onmouseover="this.style.color='#D57800'"
+                                  onmouseout="this.style.color='black'">Read
+                                More</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="product-item-sm d-flex">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/home_page/collar.png' %}" alt="Image"
+                                 class="img-fluid">
+                        </div>
+                        <div class="pt-3">
+                            <h3>Cat Collar</h3>
+                            <p>Style meets safety in our chic Cat Collars—crafted for comfort and
+                                charm. </p>
+                            <p><a href="{% url 'single_product' 3 %}" style="color: black; text-decoration: none;"
+                                  onmouseover="this.style.color='#D57800'"
+                                  onmouseout="this.style.color='black'">Read
+                                More</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <div class="product-item-sm d-flex">
+                        <div class="thumbnail">
+                            <img src="{% static 'images/home_page/harness.png' %}" alt="Image"
+                                 class="img-fluid">
+                        </div>
+                        <div class="pt-3">
+                            <h3>Dog Harness</h3>
+                            <p>Enjoy pain-free walks with our comfy Dog Harness—designed for joyous
+                                outings.</p>
+                            <p><a href="{% url 'single_product' 4 %}" style="color: black; text-decoration: none;"
+                                  onmouseover="this.style.color='#D57800'"
+                                  onmouseout="this.style.color='black'">Read
+                                More</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Popular Product -->
+
+
+    {% include 'featured.html' %}
+
+
+    {% include 'footer.html' %}
+    <!-- End Footer Section -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        var slideIndex = 1;
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        showSlides(slideIndex);
+    </script>
+
+    <script>
+        let slideIndexAuto = 0;
+        showSlidesAuto();
+
+        function showSlidesAuto() {
+            let i;
+            const slidesAuto = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slidesAuto.length; i++) {
+                slidesAuto[i].style.display = "none";
+            }
+            slideIndexAuto++;
+            if (slideIndexAuto > slidesAuto.length) {
+                slideIndexAuto = 1
+            }
+            slidesAuto[slideIndexAuto - 1].style.display = "block";
+            setTimeout(showSlidesAuto, 5000);
+        }
+    </script>
+{% endblock %}
+</body>
+
+</html>

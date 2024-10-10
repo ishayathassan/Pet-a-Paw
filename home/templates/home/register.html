@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block content %}
+
+    <div class="container my-5 p-3 rounded-5" id="signup-box">
+        <h1>User Registration Form</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="name" class="form-label">{{ form.name.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.name }}
+                </div>
+                <div class="text-danger">{{ form.errors.name }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="email" class="form-label">{{ form.email.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.email }}
+                </div>
+                <div class="text-danger">{{ form.errors.email }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="phone" class="form-label">{{ form.phone_num.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.phone_num }}
+                </div>
+                <div class="text-danger">{{ form.errors.phone }}</div>
+
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="dob" class="form-label">{{ form.dob.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.dob }}
+                </div>
+                <div class="text-danger">{{ form.errors.dob }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="house_no" class="form-label">{{ form.house_no.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.house_no }}
+                </div>
+                <div class="text-danger">{{ form.errors.house_no }}</div>
+
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="street" class="form-label">{{ form.street.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.street }}
+                </div>
+                <div class="text-danger">{{ form.errors.street }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="area" class="form-label">{{ form.area.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.area }}
+                </div>
+                <div class="text-danger">{{ form.errors.area }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="username" class="form-label">{{ form.username.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.username }}
+                </div>
+                <div class="text-danger ">{{ form.errors.username }}</div>
+
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="password1" class="form-label">{{ form.password1.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.password1 }}
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-2 justify-content-start form-fields">
+                <div class="col-3">
+                    <label for="password2" class="form-label">{{ form.password2.label }}</label>
+                </div>
+                <div class="col-6">
+                    {{ form.password2 }}
+                </div>
+                <div class="text-danger error-text">{{ form.errors.password2 }}</div>
+
+            </div>
+
+            <div>
+                <input type="submit" name="sign_up" class="btn btn-primary sign-up-btn" value="Sign up">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}">
+
+
+    {#    Google Fonts    #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    {#Font Awesome#}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    {#    Bootstrap     #}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% block css %} {% endblock %}
+    <link rel="stylesheet" href="{% static base.css %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+    <title>Pet A Paw</title>
+</head>
+<body>
+
+{#Navbar#}
+<nav id="navbar-settings" class="navbar navbar-expand-md "
+     arial-label="Furni navigation bar">
+
+    <div class="container">
+        <a href="{% url 'home' %}"><img src="{% static 'img/icon.png' %}" alt="Icon" class="icon-image"></a>
+        <a class="navbar-brand" href="{% url 'home' %}">Pet A Paw</a>
+
+        <div class="collapse navbar-collapse" id="navbarsFurni">
+            <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                <li><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
+                <li><a class="nav-link" href="{% url 'hostel' %}">Hostels</a></li>
+                <li><a class="nav-link" href="{% url 'vet_home' %}">Vet Support</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle community-toggle" href="#" id="navbarDropdownMenuLink"
+                       role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Community
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{% url 'blog_home' %}">Blogs</a></li>
+                        <li><a class="dropdown-item" href="{% url 'my_blogs' request.user %}">My Profile</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            {#            Authentication #}
+            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
+                {% if request.user.is_authenticated %}
+                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li><a class="nav-link" href="{% url 'cart' %}" id="cartButton"><img
+                                src="{% static 'images/home_page/cart.svg' %}"></a>
+                        </li>
+                        {#                        <li>{{ request.user.username }}</li>#}
+                        <li><a href="{% url 'profile' %}">
+                            <img src="{{ request.user.userprofile.image.url }}" alt="Profile Icon" width="50"
+                                 height="50"
+                                 style="margin-left: 10px; margin-right:12px; margin-top:5px; border-radius: 50%; width: 45px; height: 45px; position: relative; top: -8px; right: -10px;"
+                            ">
+                        </a></li>
+                    </ul>
+                    <a href="{% url 'logout' %}" class="nav-link">Log out</a>
+
+                {% else %}
+                    <a href="{% url 'login' %}" class="nav-link">Login</a>
+                {% endif %}
+
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+{#End of Navbar#}
+
+
+{% block content %}
+
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>

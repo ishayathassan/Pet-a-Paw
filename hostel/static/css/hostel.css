@@ -1,0 +1,30 @@
+
+.search-button {
+    margin-top: 50px;
+    background-color: #D57800 !important;
+    border: none;
+}
+
+.container-last {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.form-card {
+    padding: 50px;
+
+}
+
+.doodle-img img {
+    border-radius: 20px;
+}
+
+.feature-content p {
+    color: white !important;
+}
+
+.card {
+    background-color: #d58825 !important;
+    /*background-color: #FFB14C !important;*/
+
+}

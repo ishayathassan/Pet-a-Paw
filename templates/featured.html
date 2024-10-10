@@ -1,0 +1,54 @@
+{% load static %}
+<div class="slideshow-container" style="position: relative; max-width: 100%; overflow: hidden; height: 350px;">
+    <!-- Slide 1 -->
+    <div class="mySlides">
+        <a href="{% url 'shop' %}" class="image-link">
+            <picture>
+                <source srcset="{% static 'img/Banner_10.webp' %}" type="image/webp">
+                <source srcset="{% static 'img/Banner_10.webp' %}" type="image/jpeg">
+                <img src="{% static 'img/Banner_10.webp' %}" alt="Slide 1"
+                     style="width: 100%;">
+            </picture>
+        </a>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="mySlides">
+        <a href="{% url 'hostel' %}" class="image-link">
+            <picture>
+                <source srcset="{% static 'img/hotel.jpeg' %}" type="image/webp">
+                <source srcset="{% static 'img/hotel.jpeg' %}" type="image/jpeg">
+                <img src="{% static 'img/hotel.jpeg' %}" alt="Slide 2"
+                     style="width: 100%;">
+            </picture>
+        </a>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="mySlides">
+        <a href="{% url 'vet_home' %}" class="image-link">
+            <picture>
+                <source srcset="{% static 'img/vet.png' %}" type="image/webp">
+                <source srcset="{% static 'img/vet.png' %}" type="image/jpeg">
+                <img src="{% static 'img/vet.png' %}" alt="Slide 3" style="width: 100%;">
+            </picture>
+        </a>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="mySlides">
+        <a href="{% url 'shop' %}" class="image-link">
+            <picture>
+                <source srcset="{% static 'img/banner03.png' %}" type="image/webp">
+                <source srcset="{% static 'img/banner03.png' %}" type="image/jpeg">
+                <img src="{% static 'img/banner03.png' %}" alt="Slide 3"
+                     style="width: 100%;">
+            </picture>
+        </a>
+    </div>
+
+    <!-- Navigation buttons -->
+    <button class="slideshow-btn prev" onclick="plusSlides(-1)">&#10094;</button>
+
+    <button class="slideshow-btn next" onclick="plusSlides(1)">&#10095;</button>
+</div>

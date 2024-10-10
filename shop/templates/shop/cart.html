@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    {#    <link rel="stylesheet" href="{% static 'css/shop.css' %}">#}
+{% endblock %}
+{% block content %}
+    <section class="h-100 h-custom" style="background-color: #f3f3f3;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 25px;">
+                        <div class="card-body p-0">
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li style="padding: 10px 15px; margin-bottom: 10px; border-radius: 25px; font-size: 16px;
+                                                {% if message.tags %} {% if message.tags == 'error' %} background-color: #f8d7da; color: #721c24; {% elif message.tags == 'success' %} background-color: #d4edda; color: #155724; {% elif message.tags == 'warning' %} background-color: #fff3cd; color: #856404; {% elif message.tags == 'info' %} background-color: #d1ecf1; color: #0c5460; {% endif %} {% endif %}">
+                                            {{ message }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            <div class="row g-0">
+                                <div class="col-lg-8" style="background-color: #BFBFBF;">
+                                    <div class="p-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-5">
+                                            <h1 class="fw-bold mb-0 ss-text">Shopping Cart</h1>
+                                            <h6 class="mb-0 ss-text text-muted">
+                                                {{ cart_items|length }} items
+                                            </h6>
+                                        </div>
+                                        <hr class="my-4">
+
+                                        {% for item in cart_items %}
+                                            <form method="post" action="{% url 'update_cart' %}" class="mb-2">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="action" value="updateQuantity">
+                                                <input type="hidden" name="productId" value="{{ item.product_id.id }}">
+                                                <div class="row d-flex align-items-center text-center bg-light p-2 rounded">
+                                                    <div class="col-2">
+                                                        <img src="{{ item.product_id.image.url }}"
+                                                             class="img-fluid rounded-3"
+                                                             alt="{{ item.product_id.name }}"
+                                                             style="max-width: 50px; max-height: 50px;">
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <h6 class="text-truncate">{{ item.product_id.name }}</h6>
+                                                        <small class="text-muted">{{ item.product_id.category }}</small>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <button type="submit" name="modify" value="decrease"
+                                                                    class="btn btn-outline-secondary"
+                                                                    style="padding: 0.1rem 0.3rem; font-size: 0.8rem; background-color: #D57800; border: none;">
+                                                                -
+                                                            </button>
+                                                            <span class="form-control form-control-sm mx-2 text-center"
+                                                                  style="width: 50px; display: inline-block; padding: .375rem .75rem; line-height: normal; height: calc(1.5em + .75rem + 2px); vertical-align: middle;">{{ item.quantity }}</span>
+
+                                                            <button type="submit" name="modify" value="increase"
+                                                                    class="btn btn-outline-secondary"
+                                                                    style="padding: 0.1rem 0.3rem; font-size: 0.8rem; background-color: #D57800; border: none;">
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <h6>$ {{ item.product_id.price|floatformat:2 }}
+                                                            x {{ item.quantity }}</h6>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <button type="submit" name="action" value="delete"
+                                                                class="btn btn-danger btn-sm"
+                                                                style=" background-color:#D57800; border: none;">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        {% endfor %}
+
+
+
+                                        <hr class="my-4">
+
+                                        <div class="pt-5">
+                                            <h6 class="mb-0 ss-text"><a href="{% url 'shop' %}" class="text-body"><i
+                                                    class="fas fa-long-arrow-alt-left me-2"></i> <- Continue
+                                                shopping</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 bg-grey">
+                                    <div class="p-5">
+                                        <h3 class="fw-bold mb-5 mt-2 pt-1 ss-text">Summary</h3>
+                                        <hr class="my-4">
+                                        <div class="mb-3">
+                                            <h5 class="ss-text">Total Items: {{ cart_items|length }}</h5>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <h5 class="ss-text">Total Cost: $ {{ total|floatformat:2 }}</h5>
+                                            <hr style="border-top: 2px solid #000; margin-top: 5px; margin-bottom: 10px;">
+                                        </div>
+
+                                        <!-- Payment Form -->
+                                        <form action="{% url 'confirm_payment' %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="mb-3">
+                                                <label for="cardNumber" class="form-label ss-text">Card Number</label>
+                                                <input type="text" class="form-control ss-text" id="cardNumber"
+                                                       name="cardNumber" required>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="expiryDate" class="form-label ss-text">Expiry Date</label>
+                                                <input type="text" class="form-control ss-text text-muted"
+                                                       id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="cvv" class="form-label ss-text">CVV</label>
+                                                <input type="text" class="form-control" id="cvv" name="cvv" required>
+                                            </div>
+
+                                            <button type="submit" class="btn brand search-button nav_text"
+                                                    style="background-color: #D57800; border: none;"
+                                                    id="confirmPaymentBtn" disabled>Confirm Payment
+                                            </button>
+                                        </form>
+
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                const cardNumberInput = document.getElementById('cardNumber');
+                                                const expiryDateInput = document.getElementById('expiryDate');
+                                                const cvvInput = document.getElementById('cvv');
+                                                const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
+
+                                                // Add an input event listener to each input field
+                                                cardNumberInput.addEventListener('input', handleFormValidation);
+                                                expiryDateInput.addEventListener('input', handleFormValidation);
+                                                cvvInput.addEventListener('input', handleFormValidation);
+
+                                                function handleFormValidation() {
+                                                    // Enable the button only if all fields are not empty
+                                                    const isFormValid = cardNumberInput.value.trim() !== '' &&
+                                                        expiryDateInput.value.trim() !== '' &&
+                                                        cvvInput.value.trim() !== '';
+
+                                                    confirmPaymentBtn.disabled = !isFormValid;
+                                                }
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,155 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+    <link rel="stylesheet" href="{% static 'css/blog_home.css' %}"/>
+{% endblock %} {% block content %}
+    <div class="content-wrapper">
+        <form method="GET" action="">
+            {% csrf_token %}
+            <div class="d-flex search-box">
+                <input
+                        id="search-field"
+                        type="text"
+                        class="form-control"
+                        placeholder="Search blogs..."
+                        aria-label="Search blogs"
+                        aria-describedby="searchButton"
+                        name="searchInput"
+                        value="{{ request.GET.searchInput }}"
+                />
+                <button
+                        id="search-button"
+                        class="btn brand ss-text"
+                        type="submit"
+                        id="searchButton"
+                >
+                    Search
+                </button>
+            </div>
+        </form>
+
+        <div class="card mb-4 rounded-5 p-3 new-post-card">
+            <form action="{% url 'create_blog' %}" method="POST">
+                {% csrf_token %}
+                <div class="card-content new-post-card-content">
+                    <img id="user-img" src="{% static 'images/user_img/1.png' %}"/>
+
+                    <textarea
+                            type="text"
+                            name="blog-content"
+                            id="new-blog"
+                            placeholder="What's on your mind hoo-man?"
+                    ></textarea>
+                </div>
+                <input
+                        type="submit"
+                        name="post-btn"
+                        class="btn btn-primary post-btn"
+                        value="Post"
+                />
+            </form>
+        </div>
+        <aside class="trending">
+            <h2>Trending Now</h2>
+            <ul>
+                {% for tag in trending_tags %}
+                    <li><a href="{% url 'blog_home' %}?searchInput={{ tag.name }}">{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </aside>
+        {% for blog in blogs %}
+            <div class="card mb-4 rounded-5 p-3 blog-card">
+                <div class="card-content blog-card-content">
+                    <a href="{% url 'blog_profile' blog.user %}" class="profile-link"
+                    ><img class="blogger-img" src="{{ blog.user.userprofile.image.url }}"
+                    /></a>
+                    <a href="{% url 'blog_profile' blog.user %}" class="profile-link"
+                    ><p class="card-title">{{ blog.user.userprofile.name }}</p>
+                    </a>
+
+                    <h6 class="card-subtitle mb-2 blog-time">{{ blog.created_at }}</h6>
+                    {% if request.user == blog.user %}
+                        <div class="dropdown three-dots-toggler">
+                            <a
+                                    class=""
+                                    href="#"
+                                    role="button"
+                                    id="toggleLink"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                            >
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        class="bi bi-three-dots"
+                                        viewBox="0 0 16 16"
+                                >
+                                    <path
+                                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
+                                    />
+                                </svg>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="toggleLink">
+                                <li>
+                                    <a
+                                            class="dropdown-item"
+                                            href="{% url 'update_blog' blog.blog_id %}"
+                                            id="updateLink"
+                                    >Update</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                            class="dropdown-item"
+                                            href="{% url 'delete_blog' blog.blog_id %}"
+                                            id="deleteLink"
+                                    >Delete</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <a href="{% url 'single_blog' blog.blog_id %}">
+                        {% if blog.content|length > 350 %}
+                            <p class="card-text blog-content">
+                                {{ blog.content|slice:":350" }}...
+                                <span class="see-more">See more</span>
+                            </p>
+                        {% else %}
+                            <p class="card-text blog-content">{{ blog.content }}</p>
+                        {% endif %}
+                    </a>
+                    <div class="tags">
+                        {% for tag in blog.tags.all %}
+                            <a href="{% url 'blog_home' %}?searchInput={{ tag.name }}" class="tag">#{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="like-box">
+                        <p>{{ blog.like_count }}</p>
+                        {% if request.user in blog.liked_by.all %}
+                            <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                                {% csrf_token %}
+                                <button id="like-btn" class="react-btn" type="submit">
+                                    <img alt=""/>
+                                </button>
+                            </form>
+                        {% else %}
+                            <form action="{% url 'like_blog' blog.blog_id %}" method="post">
+                                {% csrf_token %}
+                                <button id="unlike-btn" class="react-btn" type="submit">
+                                    <img alt=""/>
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+
+                    <div class="comment-box">
+                        <p>{{ blog.comment_count }}</p>
+                        <a href="{% url 'single_blog' blog.blog_id %}"
+                        ><img src="{% static 'images/assets/comments.png' %}" alt=""
+                        /></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>{% endblock %}

@@ -1,0 +1,281 @@
+/*.content-wrapper {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap; !* Allows elements to wrap to the next line if needed *!*/
+/*}*/
+
+.new-post-card {
+    background-color: #D9D9D9;
+    max-width: 800px;
+    height: 200px;
+    border-radius: 35px !important;
+    margin-top: 50px;
+    margin-left: 135px;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.new-post-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+#user-img {
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+#new-blog {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 9px;
+    width: 670px;
+    height: 85px;
+    border-radius: 20px;
+    border: none;
+    resize: none;
+    padding-left: 25px;
+    padding-top: 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.post-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 100px;
+    height: 50px;
+    border-radius: 75px;
+    background-color: #D57800;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    border: none;
+}
+
+.post-btn:hover {
+    background: rgba(213, 120, 0, 0.83);
+    color: #FFFFFF;
+}
+
+aside {
+    width: 300px; /* Adjust width as needed */
+    height: 320px;
+    padding: 25px;
+    padding-left: 40px;
+    background-color: #f5f5f5;
+    flex: 0 0 25%; /* Makes the aside element take up 25% of the available space and prevents it from shrinking or growing */
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    border-radius: 40px;
+    background-color: #D9D9D9;
+}
+
+aside h2 {
+    font-weight: 600;
+    font-style: normal;
+    color: #c17612;
+    margin-bottom: 25px;
+}
+
+aside ul li {
+    color: #D57800;
+    margin-bottom: 4px;
+}
+
+aside a {
+    text-decoration: none;
+}
+
+.blog-card {
+    background-color: #D9D9D9;
+    max-width: 800px;
+    height: 320px !important;
+    border-radius: 35px !important;
+    margin-top: 50px;
+    margin-left: 135px !important;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.blog-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.profile-link {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.blogger-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.card-title {
+    margin-top: 10px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-time {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 11px;
+    position: absolute;
+    top: 45px;
+    left: 69px;
+}
+
+.three-dots-toggler {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+}
+
+.blog-content {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.like-box {
+    position: absolute;
+    top: 255px;
+    left: 15px;
+}
+
+.like-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-box {
+    position: absolute;
+    top: 255px;
+    left: 85px;
+}
+
+.comment-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-box img {
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.see-more {
+    text-decoration: none;
+    color: #D57800;
+    font-size: 14px;
+}
+
+#like-btn img {
+    content: url("../images/assets/heart1.png");
+    width: 22px !important;
+    height: 22px !important;
+
+}
+
+#like-btn:hover img {
+    content: url("../images/assets/heart2.png"); /* Change the image path accordingly */
+    width: 22px !important;
+    height: 22px !important;
+}
+
+#unlike-btn img {
+    content: url("../images/assets/heart2.png");
+    width: 22px !important;
+    height: 22px !important;
+}
+
+#unlike-btn:hover img {
+    content: url("../images/assets/heart1.png"); /* Change the image path accordingly */
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.react-btn {
+    display: inline-block !important;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -45px;
+    left: 20px;
+}
+
+.search-box {
+    margin-top: 55px;
+    margin-left: 137px;
+}
+
+#search-field {
+    width: 500px !important;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-right: 25px;
+}
+
+#search-button {
+    background-color: #D57800;
+    border: none;
+}
+
+#search-button:hover {
+    background: rgba(213, 120, 0, 0.83);
+    color: #FFFFFF;
+}
+
+.tags {
+    position: absolute;
+    top: 220px;
+    left: 25px;
+}
+
+.tags a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}
+
+.tags a:hover {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}
