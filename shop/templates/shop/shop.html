@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}">
+{% endblock %}
+{% block content %}
+    {% include 'featured.html' %}
+    <form action="{% url 'shop' %}" method="get" class="d-flex flex-column align-items-center">
+        {#        {% csrf_token %}#}
+        <div class="mb-4 mt-4">
+            <!-- Search Bar -->
+            <div class="d-flex justify-content-between align-items-center mx-auto">
+                <input id="search-field" type="text" class="form-control" placeholder="Search products..."
+                       aria-label="Search products" aria-describedby="searchButton" name="searchInput"
+                       value="{{ request.GET.searchInput }}">
+                <button id="search-button" class="btn brand ss-text" type="submit" id="searchButton">
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <div class="mb-2 d-flex ">
+            <!-- Category Dropdown -->
+            <div class="me-2 flex-grow-1 ">
+                <select class="form-select filter-field" name="category">
+                    <option value="" {% if not request.GET.category %} selected {% endif %}>Any Category</option>
+                    <option value="Foods" {% if request.GET.category == 'Foods' %} selected {% endif %}>Foods</option>
+                    <option value="Toy" {% if request.GET.category == 'Toy' %} selected {% endif %}>Toy</option>
+                    <option value="Accessories" {% if request.GET.category == 'Accessories' %} selected {% endif %}>
+                        Accessories
+                    </option>
+                </select>
+            </div>
+
+            <!-- Price Range Dropdown -->
+            <div class="me-2 flex-grow-1">
+                <select class="form-select filter-field" name="priceRange">
+                    <option value="" {% if not request.GET.priceRange %} selected {% endif %}>Any Price Range</option>
+                    <option value="0-500" {% if request.GET.priceRange == '0-500' %} selected {% endif %}>$0 - $500
+                    </option>
+                    <option value="501-1000" {% if request.GET.priceRange == '501-1000' %} selected {% endif %}>$501 -
+                        $1000
+                    </option>
+                    <!-- Add more price ranges as needed -->
+                </select>
+            </div>
+
+            <!-- Sorting Dropdown -->
+            <div class="flex-grow-1">
+                <select class="form-select filter-field" name="sort">
+                    <option value="" {% if not request.GET.sort %} selected {% endif %}>Sort by</option>
+                    <option value="name_asc" {% if request.GET.sort == 'name_asc' %} selected {% endif %}>Name (A-Z)
+                    </option>
+                    <option value="name_desc" {% if request.GET.sort == 'name_desc' %} selected {% endif %}>Name (Z-A)
+                    </option>
+                    <option value="price_asc" {% if request.GET.sort == 'price_asc' %} selected {% endif %}>Price (Low
+                        to High)
+                    </option>
+                    <option value="price_desc" {% if request.GET.sort == 'price_desc' %} selected {% endif %}>Price
+                        (High to Low)
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <input type="hidden" name="page" value="{{ current_page }}">
+    </form>
+
+    <div class="container mt-2">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-3 col-md-3 mb-4 product-card">
+                    <div class="card shadow h-100 border-0">
+                        <img src="{{ product.image.url }}" class="card-img-top product"
+                             alt="Product Image">
+                        <div class="card-body text-center">
+                            <a class='brand-text text-decoration-none ss-text'
+                               href="">
+                                <h5 class='mb-2 font-weight-bold'>{{ product.name }}</h5>
+                            </a>
+                            <p class='text-muted mb-2 small ss-text'>{{ product.category }}</p>
+                            <p class='text-muted mb-1 ss-text'>Price: ${{ product.price }}</p>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Details Button -->
+                                <a class='brand-text ml-3'
+                                   href="{% url 'single_product' product.id %}">Details</a>
+
+                                <!-- Add to Cart Button -->
+                                <form action="" method="post" style="margin-left: 75px;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="addToCart" value="{{ product.id }}">
+                                    {#                                <?php if (isset($_SESSION['user_id'])) { ?>#}
+                                    {% if request.user %}
+                                        <button class="btn brand search-button ss-text" type="submit">Add</button>
+                                    {% else %}
+                                        {#                                <?php } else { ?>#}
+                                        <button type="button" class="btn brand search-button ss-text"
+                                                data-toggle="modal"
+                                                data-target="#loginModal">
+                                            Add to Cart
+                                        </button>
+                                        {#                                <?php } ?>#}
+                                    {% endif %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    {#    <div class="container mt-3">#}
+    {#        <ul class="pagination justify-content-center">#}
+    {#            <?php#}
+    {#        $totalPages = ceil($totalProducts / $productsPerPage);#}
+    {#        for ($i = 1; $i <= $totalPages; $i++) {#}
+    {#            $query = http_build_query(array_merge($_GET, ['page' => $i]));#}
+    {#            echo "#}
+    {#            <li class='page-item' style='margin: 0 2px'><a class='brand page-link border-0 ss-text'#}
+    {#                                                           style='color: #FFFFFF ;background-color: #ffce90'#}
+    {#                                                           href='?{$query}'>$i</a></li>#}
+    {#            ";#}
+    {#            }#}
+    {#            ?>#}
+    {#        </ul>#}
+    {#    </div>#}
+    {% include 'footer.html' %}
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        var slideIndex = 1;
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        showSlides(slideIndex);
+    </script>
+
+    <script>
+        let slideIndexAuto = 0;
+        showSlidesAuto();
+
+        function showSlidesAuto() {
+            let i;
+            const slidesAuto = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slidesAuto.length; i++) {
+                slidesAuto[i].style.display = "none";
+            }
+            slideIndexAuto++;
+            if (slideIndexAuto > slidesAuto.length) {
+                slideIndexAuto = 1
+            }
+            slidesAuto[slideIndexAuto - 1].style.display = "block";
+            setTimeout(showSlidesAuto, 5000);
+        }
+    </script>
+{% endblock %}
+{#</body>#}
+{#</html>#}

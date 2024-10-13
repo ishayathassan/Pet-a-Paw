@@ -1,0 +1,108 @@
+.hero {
+    background-color: #D57800 !important;
+    font-family: "Poppins", sans-serif;
+    color: #FFFFFF;
+    height: 580px;
+}
+
+.intro-excerpt h1 {
+    margin-left: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 48px;
+}
+
+#heading-1 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.intro-excerpt p {
+    margin-left: 20px;
+    margin-top: 30px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.intro-excerpt a {
+    margin-top: 40px;
+    background: #F9BF29;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    width: 165px;
+    height: 60px;
+    border-radius: 75px;
+}
+
+#explore-btn {
+    margin-left: 50px;
+    padding-top: 15px;
+    padding-left: 28px;
+}
+
+#shop-now-btn {
+    padding-top: 17px;
+    padding-left: 30px;
+}
+
+#shop-now-btn:hover {
+    background: rgba(249, 191, 41, 0.71);
+    color: #000000;
+    /*border: #ffffff 1px solid;*/
+}
+
+.hero-img-wrap {
+    margin-top: 74px;
+}
+
+.product-section {
+    margin-top: 75px;
+}
+
+.product-section h2 {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 28px;
+    color: #2f2f2f;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: 0px !important;
+}
+
+.product-section p {
+    margin-bottom: 50px !important;
+}
+
+.why-choose-section {
+    margin-bottom: 30px !important;
+}
+
+.why-choose-section h2 {
+    margin-bottom: 15px !important;
+}
+
+.why-choose-section p {
+    margin-bottom: 70px !important;
+}
+
+.why-choose-section img {
+    margin-bottom: 25px !important;
+}
+
+.we-help-section h2 {
+    margin-bottom: 40px !important;
+}
+
+.we-help-section p {
+    margin-bottom: 40px !important;
+}
+
+.subsection-btn {
+    width: 120px;
+    height: 50px;
+}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/my_blog.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>My Profile</h1>
+    <div class="card mb-4 rounded-5 p-3 profile-card">
+        <div class="card-content profile-card-content">
+            <img class="profile-img" src="{{ user.userprofile.image.url }}">
+            <p class="card-title">{{ user.userprofile.name }}</p>
+            <p class="card-text profile-content user-name"><b>Username:</b> {{ request.user }}</p>
+            <p class="card-text profile-content blog-count"><b>Total Blogs:</b> {{ blogs|length }}</p>
+            <p class="card-text profile-content dob"><b>Date of Birth:</b> {{ request.user.userprofile.dob }}</p>
+        </div>
+    </div>
+
+
+    {% for blog in blogs %}
+        <div class="card mb-4 rounded-5 p-3 blog-card">
+            <div class="card-content blog-card-content">
+                <img class="blogger-img" src="{{ user.userprofile.image.url }}">
+                <p class="card-title">{{ blog.user.userprofile.name }}</p>
+                <h6 class="card-subtitle mb-2  blog-time">{{ blog.created_at }}</h6>
+
+                <div class="dropdown three-dots-toggler">
+                    <a class="" href="#" role="button" id="toggleLink" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-three-dots " viewBox="0 0 16 16">
+                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="toggleLink">
+                        <li><a class="dropdown-item" href="{% url 'update_blog' blog.blog_id %}"
+                               id="updateLink">Update</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'delete_blog' blog.blog_id %}"
+                               id="deleteLink">Delete</a></li>
+                    </ul>
+                </div>
+
+
+                <a href="{% url 'single_blog' blog.blog_id %}">
+                    {% if blog.content|length > 350 %}
+                        <p class="card-text blog-content">{{ blog.content|slice:":350" }}... <span class="see-more">See more</span>
+                        </p>
+                    {% else %}
+                        <p class="card-text blog-content">{{ blog.content }}</p>
+                    {% endif %}
+                </a>
+                <div class="tags">
+                    {% for tag in blog.tags.all %}
+                        <a href="{% url 'blog_home' %}?searchInput={{ tag.name }}" class="tag">#{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const updateLink = document.getElementById('updateLink');
+            const deleteLink = document.getElementById('deleteLink');
+            const toggleLink = document.getElementById('toggleLink');
+
+            updateLink.addEventListener('click', function (event) {
+                // Handle update logic here
+                console.log('Update clicked');
+            });
+
+            deleteLink.addEventListener('click', function (event) {
+                // Handle delete logic here
+                console.log('Delete clicked');
+            });
+
+            toggleLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
+            });
+        });
+    </script>
+
+
+{% endblock %}

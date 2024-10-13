@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="container my-5 p-5 rounded-4" id="login-box">
+            <div class="form-fields">
+                <label for="username" class="form-label">{{ form.username.label }}</label>
+                {{ form.username }}
+                <span class="form-text">
+                User name can contain letters,digits and underscore only.
+                </span>
+                <div class="text-danger">{{ form.errors.username }}</div>
+
+
+            </div>
+            <div class="form-fields">
+                <label for="password" class="form-label">{{ form.password.label }}</label>
+                {{ form.password }}
+                <span class="form-text">
+                Must be 8-15 characters long.
+                </span>
+                <div class="text-danger">{{ form.errors.password }}</div>
+
+
+            </div>
+            <br>
+            <br>
+
+            <div class="form-footer">
+                <div>
+                    <p>Don't have an account? <a href="{% url 'register' %}">Sign up instead</a></p>
+                </div>
+                <div>
+                    <input type="submit" name="login" class="btn btn-primary login-btn" value="Login">
+                </div>
+            </div>
+
+        </div>
+    </form>
+{% endblock %}

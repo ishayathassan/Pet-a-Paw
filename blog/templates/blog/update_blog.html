@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/update_blog.css' %}" />
+{% endblock %} {% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="card mb-4 rounded-5 p-3 blog-card">
+    <div class="card-content blog-card-content">
+      <img class="blogger-img" src="{{ user.userprofile.image.url }}" />
+      <p class="card-title">{{ blog.user.userprofile.name }}</p>
+      <h6 class="card-subtitle mb-2 blog-time">{{ blog.created_at }}</h6>
+      <textarea
+        class="card-text blog-content"
+        name="blog-content"
+        id="new-blog"
+        cols="30"
+        rows="10"
+      >
+          {{ blog.content }}</textarea
+      >
+    </div>
+    <input
+      type="submit"
+      name="post-btn"
+      class="btn btn-primary post-btn"
+      value="Update"
+    />
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+body {
+    background-image: url("../images/register_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#signup-box {
+    background: #D9D9D9;
+    width: 968px;
+    max-height: 1500px;
+}
+
+#signup-box h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 36px;
+    color: #D57800;
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-bottom: 40px;
+}
+
+#signup-box .form-fields {
+    margin-left: 100px;
+    margin-bottom: 35px !important;
+}
+
+.text-danger li {
+    margin-left: 200px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+}
+
+.form-label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.sign-up-btn {
+    background: #D57800;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    width: 140px;
+    height: 50px;
+    border-radius: 75px;
+    padding: 5px 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    border: none;
+}
+
+.sign-up-btn:hover {
+    background: rgba(213, 120, 0, 0.83);
+    color: #FFFFFF;
+    border: black 1px solid;
+}
+

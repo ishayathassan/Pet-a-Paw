@@ -1,0 +1,196 @@
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #D57800;
+    margin-top: 80px;
+    margin-left: 250px;
+}
+
+.profile-card {
+    background-color: #D9D9D9;
+    max-width: 1000px;
+    height: 300px;
+    border-radius: 35px !important;
+    margin-top: 30px;
+    margin-left: 240px;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 100px !important;
+
+}
+
+.profile-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.profile-img {
+    width: 190px;
+    height: 190px;
+    margin-right: 80px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.card-title {
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.user-name {
+    position: absolute;
+    top: 100px;
+    left: 346px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-count {
+    position: absolute;
+    top: 140px;
+    left: 346px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.dob {
+    position: absolute;
+    top: 180px;
+    left: 346px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-card {
+    margin-top: 50px;
+    background-color: #D9D9D9;
+    max-width: 800px;
+    height: 250px;
+    border-radius: 35px !important;
+    margin-left: 240px;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+.blog-card-content {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.blogger-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.card-title {
+    margin-top: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.blog-time {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 11px;
+    position: absolute;
+    top: 53px;
+    left: 94px;
+}
+
+.three-dots-toggler {
+    position: absolute;
+    top: 22px;
+    right: 25px;
+}
+
+.blog-content {
+    margin-top: 10px;
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.like-box {
+    position: absolute;
+    top: 180px;
+    left: 15px;
+}
+
+.like-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comment-box {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+}
+
+.comment-box p {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.see-more {
+    text-decoration: none;
+    color: #D57800;
+    font-size: 14px;
+}
+
+.tags {
+    position: absolute;
+    top: 180px;
+    left: 10px;
+}
+
+.tags a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}
+
+.tags a:hover {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: #bc7928;
+    border-radius: 3px;
+    width: 100px;
+}
